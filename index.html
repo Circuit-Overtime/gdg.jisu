@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Google Study Jams 2025 Leaderboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/contentbuilder/GDG_Bevy_DefaultChapterThumbnail_5oO1cMY.png">
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex flex-col">
     <header class="py-8 text-center">
@@ -13,22 +14,22 @@
     </header>
     <main class="flex-grow flex items-center justify-center">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-3xl px-6">
-            <!-- GNIT Tile -->
-            <a href="/gnit-leaderboard.html" class="group bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-2xl hover:bg-indigo-50">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/GNIT_logo.png" alt="GNIT Logo" class="w-20 h-20 mb-4 rounded-full border-4 border-indigo-200 group-hover:border-indigo-400 transition">
+            <div class="group bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-2xl hover:bg-indigo-50" id="gnitTile">
+                <img src="https://upload.wikimedia.org/wikipedia/en/c/c1/GNIT_Kolkata_logo.png" alt="GNIT Logo" class="w-20 h-20 mb-4 rounded-full border-4 border-indigo-200 group-hover:border-indigo-400 transition">
                 <h2 class="text-2xl font-bold text-indigo-800 mb-2 group-hover:text-indigo-600 transition">GNIT Leaderboard</h2>
                 <p class="text-gray-500 text-center">View the leaderboard for Guru Nanak Institute of Technology participants.</p>
-            </a>
-            <!-- JISU Tile -->
-            <a href="/jisu-leaderboard.html" class="group bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-2xl hover:bg-indigo-50">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/JISU_logo.png" alt="JISU Logo" class="w-20 h-20 mb-4 rounded-full border-4 border-indigo-200 group-hover:border-indigo-400 transition">
+            </div>
+            <div  class="group bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-2xl hover:bg-indigo-50" id="jisuTile">
+                <img src="https://www.jisuniversity.ac.in/images/logo.png" alt="JISU Logo" class="w-20 h-20 mb-4 rounded-full border-4 border-indigo-200 group-hover:border-indigo-400 transition">
                 <h2 class="text-2xl font-bold text-indigo-800 mb-2 group-hover:text-indigo-600 transition">JISU Leaderboard</h2>
                 <p class="text-gray-500 text-center">View the leaderboard for JIS University participants.</p>
-            </a>
+            </div>
         </div>
     </main>
     <footer class="py-6 text-center text-gray-400 text-sm">
         &copy; 2025 Google Study Jams. All rights reserved.
     </footer>
 </body>
+<script src="JS/linkRedirect.js"></script>
+<script src="JS/general.js"></script>
 </html>
