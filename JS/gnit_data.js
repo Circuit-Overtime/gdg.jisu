@@ -32,14 +32,12 @@ async function loadData() {
         processUsers();
         updateStats();
         renderLeaderboard(allUsers);
-
-        // Try to fetch last commit time for data.csv and show it
         try {
-            const commitDate = await fetchLastCommitDate('Circuit-Overtime', 'gdg.jisu', 'data/data.csv', 'main');
+            const commitDate = await fetchLastCommitDate('Circuit-Overtime', 'gdg.jisu', 'data/gnit/data.csv', 'main');
             updateLastUpdated(commitDate);
         } catch (err) {
             console.warn('Could not fetch last commit date:', err);
-            updateLastUpdated(); // fallback to now
+            updateLastUpdated(); 
         }
 
         showLoading(false);

@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function loadData() {
     try {
         showLoading(true);
-        const csvUrl = 'https://raw.githubusercontent.com/Circuit-Overtime/gdg.jisu/refs/heads/main/data/data.csv';
+        const csvUrl = 'https://raw.githubusercontent.com/Circuit-Overtime/gdg.jisu/refs/heads/main/data/jisu/data.csv';
         const csvResponse = await fetch(csvUrl);
         if (!csvResponse.ok) throw new Error(`CSV fetch failed: ${csvResponse.status}`);
         const csvText = await csvResponse.text();
@@ -35,11 +35,11 @@ async function loadData() {
 
         // Try to fetch last commit time for data.csv and show it
         try {
-            const commitDate = await fetchLastCommitDate('Circuit-Overtime', 'gdg.jisu', 'data/data.csv', 'main');
+            const commitDate = await fetchLastCommitDate('Circuit-Overtime', 'gdg.jisu', 'data/jisu/data.csv', 'main');
             updateLastUpdated(commitDate);
         } catch (err) {
             console.warn('Could not fetch last commit date:', err);
-            updateLastUpdated(); // fallback to now
+            updateLastUpdated();
         }
 
         showLoading(false);
