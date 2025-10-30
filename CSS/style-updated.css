@@ -412,3 +412,25 @@
     color: var(--text-tertiary);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.08);
 }
+
+.leaderboard-row {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+
+.leaderboard-row:hover {
+    background-color: #f9fafb;
+}
+
+.leaderboard-row td {
+    padding: 16px 20px;
+    vertical-align: middle;
+}
+
+.leaderboard-row td:first-child {
+    padding-left: 32px;
+}
+
+.leaderboard-row td:last-child {
+    padding-right: 32px;
+}

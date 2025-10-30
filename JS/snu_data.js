@@ -148,33 +148,43 @@ function renderLeaderboard(users) {
         leaderboardBody.appendChild(row);
     });
 }
-
 function createUserRow(user, index) {
     const tr = document.createElement('tr');
     tr.style.setProperty('--index', index);
+    tr.className = 'leaderboard-row'; // Add class for styling
+    
     const rankTd = document.createElement('td');
+    rankTd.className = 'td-rank';
     rankTd.innerHTML = getRankHTML(user.rank);
     tr.appendChild(rankTd);
+    
     const nameTd = document.createElement('td');
+    nameTd.className = 'td-name';
     nameTd.innerHTML = getUserInfoHTML(user);
     tr.appendChild(nameTd);
+    
     const badgesTd = document.createElement('td');
-    badgesTd.className = 'td-center';
+    badgesTd.className = 'td-center td-badges';
     badgesTd.innerHTML = getBadgeCountHTML(user.badgesCount);
     badgesTd.title = user.badgeNames || 'No badges completed';
     tr.appendChild(badgesTd);
+    
     const gamesTd = document.createElement('td');
-    gamesTd.className = 'td-center';
+    gamesTd.className = 'td-center td-games';
     gamesTd.innerHTML = getGameCountHTML(user.gamesCount);
     gamesTd.title = user.gameNames || 'No games completed';
     tr.appendChild(gamesTd);
+    
     const codeTd = document.createElement('td');
-    codeTd.className = 'td-center';
+    codeTd.className = 'td-center td-redeemed';
     codeTd.innerHTML = getRedeemedHTML(user.accessCodeRedeemed);
     tr.appendChild(codeTd);
+    
     const statusTd = document.createElement('td');
+    statusTd.className = 'td-status';
     statusTd.innerHTML = getStatusHTML(user);
     tr.appendChild(statusTd);
+    
     return tr;
 }
 
