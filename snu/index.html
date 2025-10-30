@@ -8,92 +8,94 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWSG4Tu8rPIMfsAhNsMdrMTecluFhSCttYlw&s">
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style-updated.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="app">
-        <header class="header">
-            <div class="container">
-                <div class="header-content">
-                    <div class="brand" id="homeRedirect">
-                        <img src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/contentbuilder/GDG_Bevy_DefaultChapterThumbnail_5oO1cMY.png" alt="GDG Logo" class="brand-icon">
-                        <div class="brand-text">
-                            <h1>Cloud Skills Leaderboard</h1>
-                            <p>GDG on Campus - SNU, Kolkata</p>
-                            <div class="Updatedcontainer">
-                                <p>Last updated: <span id="lastUpdated"></span></p>
+<body class="font-inter bg-gray-50 text-gray-900 text-base leading-relaxed">
+    <div class="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-white">
+        <header class="sticky top-0 z-50 bg-white border-b border-gray-200 py-10 shadow-sm backdrop-blur-lg">
+            <div class="max-w-screen-xl mx-auto px-8">
+                <div class="flex flex-wrap justify-between items-center gap-12">
+                    <div class="flex items-center gap-6 cursor-pointer" id="homeRedirect">
+                        <img src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/contentbuilder/GDG_Bevy_DefaultChapterThumbnail_5oO1cMY.png" alt="GDG Logo" class="w-16 h-16 object-contain drop-shadow">
+                        <div>
+                            <h1 class="text-2xl font-bold mb-2 tracking-tight text-gray-900 leading-tight">Cloud Skills Leaderboard</h1>
+                            <p class="text-base text-gray-600 font-medium tracking-tight">GDG on Campus - SNU, Kolkata</p>
+                            <div>
+                                <p class="text-sm text-gray-500">Last updated: <span id="lastUpdated"></span></p>
                             </div>
                         </div>
-                        
                     </div>
-                    <div class="header-stats">
-                        <div class="stat-item">
-                            <span class="stat-number" id="totalUsers">0</span>
-                            <span class="stat-label">Participants</span>
+                    <div class="flex items-center gap-12">
+                        <div class="flex flex-col items-end gap-2">
+                            <span class="text-3xl font-bold text-blue-700 leading-none tracking-tight" id="totalUsers">0</span>
+                            <span class="text-xs text-gray-600 uppercase font-semibold">Participants</span>
                         </div>
-                        <div class="stat-divider"></div>
-                        <div class="stat-item">
-                            <span class="stat-number" id="completedUsers">0</span>
-                            <span class="stat-label">Completed</span>
+                        <div class="w-px h-14 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
+                        <div class="flex flex-col items-end gap-2">
+                            <span class="text-3xl font-bold text-blue-700 leading-none tracking-tight" id="completedUsers">0</span>
+                            <span class="text-xs text-gray-600 uppercase font-semibold">Completed</span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
 
-        <main class="main">
-            <div class="container">
-                <div class="controls">
-                    <div class="search-wrapper">
-                        <svg class="search-icon" viewBox="0 0 24 24" fill="none">
-                            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
-                            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
+        <main class="flex-1 py-12">
+            <div class="max-w-screen-xl mx-auto px-8">
+                <div class="flex flex-wrap items-center gap-5 mb-10">
+                    <div class="relative flex-1 min-w-[320px] max-w-[580px] flex items-center">
+                        <span class="flex items-center justify-center w-12 h-12">
+                            <svg class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="none">
+                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
                         <input 
                             type="text" 
                             id="searchInput" 
-                            class="search-input" 
+                            class="w-full pl-14 pr-5 py-4 border-2 border-gray-200 rounded-full text-base bg-white text-gray-900 font-medium shadow-sm focus:outline-none focus:border-blue-700 focus:ring-4 focus:ring-blue-100 transition"
                             placeholder="Search participants..."
                             autocomplete="off"
                         >
                     </div>
-                    <div class="filter-group">
-                        <button class="filter-btn active" data-filter="all">
+                    <div class="filter-group  gap-5 active bg-white p-2 rounded-full border-2 border-gray-200 shadow-sm">
+                        <button class="filter-btn active px-6 py-3 rounded-full font-semibold text-sm text-gray-600 bg-transparent hover:bg-gray-100 hover:text-gray-900 transition active:bg-blue-700 active:text-white" data-filter="all">
                             All
                         </button>
-                        <button class="filter-btn" data-filter="completed" id="filterToggle">
-                            Completed <span class="filter-count" id="completedCount">0</span>
+                        <button class=" filter-btn px-6 py-3 rounded-full font-semibold text-sm text-gray-600 bg-transparent hover:bg-gray-100 hover:text-gray-900 transition flex items-center" data-filter="completed" id="filterToggle">
+                            Completed <span class="inline-flex items-center justify-center min-w-[24px] h-5 px-2 ml-2 bg-gray-200 text-gray-600 rounded-full text-xs font-bold" id="completedCount">0</span>
                         </button>
-                        <button class="filter-btn" data-filter="redeemed">
-                            Redeemed <span class="filter-count" id="redeemedCount">0</span>
+                        <button class=" filter-btn px-6 py-3 rounded-full font-semibold text-sm text-gray-600 bg-transparent hover:bg-gray-100 hover:text-gray-900 transition flex items-center" data-filter="redeemed">
+                            Redeemed <span class="inline-flex items-center justify-center min-w-[24px] h-5 px-2 ml-2 bg-gray-200 text-gray-600 rounded-full text-xs font-bold" id="redeemedCount">0</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="leaderboard">
-                    <div id="loadingState" class="loading">
-                        <div class="loader"></div>
-                        <p>Loading leaderboard...</p>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+                    <div id="loadingState" class="flex flex-col items-center justify-center py-20 text-center">
+                        <div class="w-12 h-12 border-4 border-gray-200 border-t-blue-700 rounded-full animate-spin"></div>
+                        <p class="mt-6 text-gray-600 text-base font-medium">Loading leaderboard...</p>
                     </div>
 
-                    <div id="emptyState" class="empty" style="display: none;">
-                        <svg class="empty-icon" viewBox="0 0 24 24" fill="none">
+                    <div id="emptyState" class="hidden flex flex-col items-center justify-center py-20 text-center">
+                        <svg class="w-18 h-18 text-gray-300" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
                             <path d="M8 15h8M9 9h.01M15 9h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <p>No participants found</p>
+                        <p class="mt-6 text-gray-600 text-base font-medium">No participants found</p>
                     </div>
 
-                    <div class="table-wrapper">
-                        <table class="table">
-                            <thead>
+                    <div class="overflow-x-auto max-h-[650px]">
+                        <table class="min-w-full border-collapse">
+                            <thead class="bg-gradient-to-b from-gray-50 to-gray-100 border-b-2 border-gray-300 sticky top-0 z-10 shadow">
                                 <tr>
-                                    <th class="th-rank">Rank</th>
-                                    <th class="th-name">Participant</th>
-                                    <th class="th-center">Badges</th>
-                                    <th class="th-center">Games</th>
-                                    <th class="th-center">Redeemed</th>
-                                    <th class="th-status">Status</th>
+                                    <th class="w-[110px] pl-8 py-5 pr-6 text-left text-xs font-bold text-gray-600 uppercase tracking-wide">Rank</th>
+                                    <th class="py-5 pr-6 text-left text-xs font-bold text-gray-600 uppercase tracking-wide">Participant</th>
+                                    <th class="py-5 px-6 text-center text-xs font-bold text-gray-600 uppercase tracking-wide">Badges</th>
+                                    <th class="py-5 px-6 text-center text-xs font-bold text-gray-600 uppercase tracking-wide">Games</th>
+                                    <th class="py-5 px-6 text-center text-xs font-bold text-gray-600 uppercase tracking-wide">Redeemed</th>
+                                    <th class="py-5 px-6 text-left text-xs font-bold text-gray-600 uppercase tracking-wide">Status</th>
                                 </tr>
                             </thead>
                             <tbody id="leaderboardBody">

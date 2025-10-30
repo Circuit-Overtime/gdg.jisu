@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function loadData() {
     try {
         showLoading(true);
-        const csvUrl = 'https://raw.githubusercontent.com/Circuit-Overtime/gdg.jisu/refs/heads/main/data/snu/data.csv';
+        const csvUrl = 'https://raw.githubusercontent.com/Circuit-Overtime/gdg.jisu/refs/heads/main/data/jisu/data.csv';
         const csvResponse = await fetch(csvUrl);
         if (!csvResponse.ok) throw new Error(`CSV fetch failed: ${csvResponse.status}`);
         const csvText = await csvResponse.text();
