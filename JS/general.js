@@ -8,3 +8,6 @@ document.getElementById("jisuTile").addEventListener("click", function() {
 document.getElementById("snuTile").addEventListener("click", function() {
     redirectTo("snu/");
 });
+document.getElementById("tmslTile").addEventListener("click", function() {
+    redirectTo("tmsl/");
+});
