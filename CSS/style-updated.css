@@ -434,3 +434,201 @@
 .leaderboard-row td:last-child {
     padding-right: 32px;
 }
+
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 var(--space-6);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-8);
+    }
+    
+    .header-stats {
+        width: 100%;
+        justify-content: space-around;
+        gap: var(--space-8);
+    }
+    
+    .stat-item {
+        align-items: center;
+    }
+    
+    .brand-text h1 {
+        font-size: 1.625rem;
+    }
+    
+    .brand-icon {
+        width: 52px;
+        height: 52px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+    
+    .search-wrapper {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    
+    .filter-group {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .table th,
+    .table td {
+        padding: var(--space-4) var(--space-5);
+        font-size: 0.875rem;
+    }
+    
+    .table th.th-rank {
+        padding-left: var(--space-5);
+    }
+    
+    .avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 0.875rem;
+    }
+    
+    .user-name {
+        font-size: 0.9375rem;
+    }
+    
+    .user-email {
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 var(--space-4);
+    }
+    
+    .main {
+        padding: var(--space-8) 0 var(--space-12) 0;
+    }
+    
+    .header {
+        padding: var(--space-8) 0;
+    }
+    
+    .brand {
+        gap: var(--space-4);
+    }
+    
+    .brand-text h1 {
+        font-size: 1.375rem;
+    }
+    
+    .brand-text p {
+        font-size: 0.875rem;
+    }
+    
+    .brand-icon {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .stat-number {
+        font-size: 1.75rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    /* Keep all columns visible on mobile - optimize for horizontal scroll */
+    .table-wrapper {
+        max-height: 70vh;
+    }
+    
+    .table th,
+    .table td {
+        padding: var(--space-3) var(--space-2);
+        font-size: 0.8125rem;
+        white-space: nowrap;
+    }
+    
+    .table th.th-rank {
+        width: 60px;
+        padding-left: var(--space-3);
+        padding-right: var(--space-2);
+    }
+    
+    .table th.th-status {
+        width: auto;
+        min-width: 120px;
+    }
+    
+    .rank {
+        flex-direction: column;
+        gap: var(--space-1);
+        font-size: 1rem;
+    }
+    
+    .rank-number {
+        min-width: auto;
+        font-size: 0.875rem;
+    }
+    
+    .rank.top-1 .rank-number,
+    .rank.top-2 .rank-number,
+    .rank.top-3 .rank-number {
+        font-size: 1rem;
+    }
+    
+    .medal {
+        font-size: 1.25rem;
+    }
+    
+    .user-info {
+        gap: var(--space-2);
+        min-width: 160px;
+    }
+    
+    .avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 0.75rem;
+    }
+    
+    .user-name {
+        font-size: 0.8125rem;
+        line-height: 1.3;
+    }
+    
+    .user-email {
+        font-size: 0.6875rem;
+    }
+    
+    .badge-count {
+        min-width: 36px;
+        height: 32px;
+        padding: 0 var(--space-2);
+        font-size: 0.875rem;
+    }
+    
+    .status {
+        padding: var(--space-2) var(--space-3);
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+    
+    .redeemed {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8125rem;
+    }
+}
