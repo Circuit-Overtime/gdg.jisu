@@ -1,13 +1,15 @@
 document.getElementById("gnitTile").addEventListener("click", function() {
-    redirectTo("gnit/");
+    window.location.href = "/gnit";
 });
 
 document.getElementById("jisuTile").addEventListener("click", function() {
-    redirectTo("jisu/");
+    window.location.href = "/jisu";
 });
+
 document.getElementById("snuTile").addEventListener("click", function() {
-    redirectTo("snu/");
+    window.location.href = "/snu";
 });
+
 document.getElementById("tmslTile").addEventListener("click", function() {
-    redirectTo("tmsl/");
+    window.location.href = "/tmsl";
 });
