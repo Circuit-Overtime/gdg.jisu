@@ -13,22 +13,22 @@ const chapters = {
   gnit: {
     name: 'GNIT',
     gdg_logo: 'https://upload.wikimedia.org/wikipedia/en/c/c1/GNIT_Kolkata_logo.png',
-    js_name: 'gnit'
+    js_name: 'gnit_data'
   },
   jisu: {
     name: 'JISU',
     gdg_logo: 'https://www.jisuniversity.ac.in/images/logo.png',
-    js_name: 'jisu'
+    js_name: 'jisu_data'
   },
   snu: {
     name: 'SNU',
     gdg_logo: 'https://d299ydywi1tak7.cloudfront.net/media/colleges/28/logo/Sister_Nivedita_University_Logo.png',
-    js_name: 'snu'
+    js_name: 'snu_data'
   },
   tmsl: {
     name: 'TMSL',
     gdg_logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQEZVoTDxFfhfQ/company-logo_200_200/company-logo_200_200/0/1657096672967?e=2147483647&v=beta&t=8c8vLV-IDKVZ436DXIjsaGIBb1LAIKRQ6XZbxn5xG3I',
-    js_name: 'tmsl'
+    js_name: 'tmsl_data'
   }
 };
 
@@ -39,15 +39,15 @@ app.get('/', (req, res) => {
 
 // Dynamic chapter routes
 app.get('/:chapter', (req, res) => {
-  const chapterKey = req.params.chapter.toLowerCase();
-  
-  if (chapters[chapterKey]) {
-    const { name, gdg_logo, js_name } = chapters[chapterKey];
-    const html = renderNode(name, gdg_logo, js_name);
-    res.send(html);
-  } else {
-    res.status(404).send('<h1>Chapter not found</h1>');
-  }
+    const chapterKey = req.params.chapter.toLowerCase();
+    
+    if (chapters[chapterKey]) {
+        const { name, gdg_logo, js_name } = chapters[chapterKey];
+        const html = renderNode(name, gdg_logo, js_name);
+        res.send(html);
+    } else {
+        res.sendFile(path.join(__dirname, '../oops/index.html'));
+    }
 });
 
 const PORT = process.env.PORT || 3000;
