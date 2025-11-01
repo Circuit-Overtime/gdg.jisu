@@ -106,9 +106,22 @@ function parseCSVLine(line) {
     result.push(current);
     return result;
 }
-
 function processUsers() {
     allUsers.sort((a, b) => {
+        if (a.allCompleted !== b.allCompleted) {
+            return b.allCompleted - a.allCompleted;
+        }
+        if (a.allCompleted && b.allCompleted) {
+            if (b.badgesCount !== a.badgesCount) {
+                return b.badgesCount - a.badgesCount;
+            }
+            return b.gamesCount - a.gamesCount;
+        }
+        const aProgress = a.badgesCount + a.gamesCount;
+        const bProgress = b.badgesCount + b.gamesCount;
+        if (bProgress !== aProgress) {
+            return bProgress - aProgress;
+        }
         if (b.badgesCount !== a.badgesCount) {
             return b.badgesCount - a.badgesCount;
         }
@@ -117,6 +130,7 @@ function processUsers() {
         }
         return a.name.localeCompare(b.name);
     });
+    
     allUsers.forEach((user, index) => {
         user.rank = index + 1;
     });
