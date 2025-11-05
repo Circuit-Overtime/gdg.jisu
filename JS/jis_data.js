@@ -1,6 +1,7 @@
 allUsers = [];
 let filteredUsers = [];
 let currentFilter = 'all';
+let completionsData = [];
 
 const searchInput = document.getElementById('searchInput');
 const filterButtons = document.querySelectorAll('.filter-btn');
