@@ -126,28 +126,41 @@ function parseCSVLine(line) {
 }
 
 function processUsers() {
+    const completionMap = new Map();
+    completionsData.forEach((completion, index) => {
+        completionMap.set(completion.profileUrl, index);
+    });
+    
+    allUsers.forEach(user => {
+        if (user.allCompleted && completionMap.has(user.profileUrl)) {
+            user.completionOrder = completionMap.get(user.profileUrl);
+        } else {
+            user.completionOrder = -1;
+        }
+    });
+    
     allUsers.sort((a, b) => {
-        if (a.allCompleted !== b.allCompleted) {
-            return b.allCompleted - a.allCompleted;
-        }
-        if (a.allCompleted && b.allCompleted) {
-            if (b.badgesCount !== a.badgesCount) {
-                return b.badgesCount - a.badgesCount;
+        const aCompleted = a.allCompleted;
+        const bCompleted = b.allCompleted;
+        
+        if (aCompleted && bCompleted) {
+            if (a.completionOrder !== -1 && b.completionOrder !== -1) {
+                return a.completionOrder - b.completionOrder;
             }
-            return b.gamesCount - a.gamesCount;
+            if (a.completionOrder !== -1) return -1;
+            if (b.completionOrder !== -1) return 1;
         }
-        const aProgress = a.badgesCount + a.gamesCount;
-        const bProgress = b.badgesCount + b.gamesCount;
-        if (bProgress !== aProgress) {
-            return bProgress - aProgress;
-        }
+        
+        if (aCompleted && !bCompleted) return -1;
+        if (!aCompleted && bCompleted) return 1;
+        
         if (b.badgesCount !== a.badgesCount) {
             return b.badgesCount - a.badgesCount;
         }
         if (b.gamesCount !== a.gamesCount) {
             return b.gamesCount - a.gamesCount;
         }
-        return a.name.localeCompare(b.name);
+        return a.originalIndex - b.originalIndex;
     });
     
     allUsers.forEach((user, index) => {
