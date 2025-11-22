@@ -238,9 +238,9 @@ function getUserInfoHTML(user) {
         <div class="user-info">
             <div class="avatar">${initials}</div>
             <div class="user-details">
-                <a href="${user.profileUrl}" target="_blank" rel="noopener noreferrer" class="user-name">
+                <span class="user-name">
                     ${escapeHTML(user.name)}
-                </a>
+                </span>
             </div>
         </div>
     `;
