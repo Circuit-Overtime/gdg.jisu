@@ -9,7 +9,7 @@ def getData():
 
 def FilterData():
     df = getData()
-    filtered_df = df[df['Access Code Redemption Status'] == "No"]
+    filtered_df = df[df['All Skill Badges & Games Completed'] == "Yes"]
     return filtered_df
 
 def getEmailList():
@@ -20,6 +20,6 @@ def getEmailList():
 
 if __name__ == "__main__":
     all_emails = getEmailList()
-    all_emails = [email for email in all_emails if email not in cancelledList]
+    # all_emails = [email for email in all_emails if email not in cancelledList]
     print(all_emails)
     print(f"Total emails to send: {len(all_emails)}")
