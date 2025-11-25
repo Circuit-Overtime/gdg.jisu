@@ -13,7 +13,7 @@ eligible_emails = {
 
 print(f"Eligible participants: {len(eligible_emails)}")
 
-folder = "progress/gnit_progress"
+folder = "progress/jisu_progress"
 all_files = sorted(glob.glob(os.path.join(folder, "*.csv")))
 
 def extract_date(filename):
@@ -77,7 +77,7 @@ for email, final_row in eligible_emails.items():
 
 ranking_rows.sort(key=lambda x: x["finish_date"])
 
-top50 = ranking_rows[:50]
+top50 = ranking_rows[:54]
 
 
 output_rows = []
@@ -98,6 +98,6 @@ for entry in top50:
     })
 
 out_df = pd.DataFrame(output_rows)
-out_df.to_csv("top_50_gnit.csv", index=False)
+out_df.to_csv("top_54_jisu.csv", index=False)
 
-print("top_50_gnit.csv generated successfully!")
+print("top_54_jisu.csv generated successfully!")
