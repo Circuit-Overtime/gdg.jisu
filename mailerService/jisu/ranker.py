@@ -3,7 +3,7 @@ import glob
 import os
 from datetime import datetime
 
-final_df = pd.read_csv("final.csv")
+final_df = pd.read_csv("final_gnit.csv")
 
 eligible_emails = {
     row["User Email"].strip().lower(): row
@@ -13,7 +13,7 @@ eligible_emails = {
 
 print(f"Eligible participants: {len(eligible_emails)}")
 
-folder = "progress"
+folder = "progress/gnit_progress"
 all_files = sorted(glob.glob(os.path.join(folder, "*.csv")))
 
 def extract_date(filename):
@@ -77,11 +77,11 @@ for email, final_row in eligible_emails.items():
 
 ranking_rows.sort(key=lambda x: x["finish_date"])
 
-top70 = ranking_rows[:70]
+top50 = ranking_rows[:50]
 
 
 output_rows = []
-for entry in top70:
+for entry in top50:
     r = entry["row"]
 
     output_rows.append({
@@ -98,6 +98,6 @@ for entry in top70:
     })
 
 out_df = pd.DataFrame(output_rows)
-out_df.to_csv("top_70.csv", index=False)
+out_df.to_csv("top_50_gnit.csv", index=False)
 
-print("top_70.csv generated successfully!")
+print("top_50_gnit.csv generated successfully!")
