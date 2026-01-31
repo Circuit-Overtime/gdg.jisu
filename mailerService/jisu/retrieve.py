@@ -2,24 +2,23 @@ import csv
 import pandas as pd
 from blackListEmails import cancelledList
 def getData():
-    df = pd.read_csv("data/jisu/data.csv")
+    df = pd.read_csv("swags.csv")
     return df 
 
 
 
-def FilterData():
-    df = getData()
-    filtered_df = df[df['All Skill Badges & Games Completed'] == "Yes"]
-    return filtered_df
 
-def getEmailList():
-    filtered_df = FilterData()
-    email_list = filtered_df['User Email'].tolist()
-    return email_list
+def FilterData(size):
+    df = getData()
+    count = 0
+    filtered_df = list(df['Size'])
+    for i in filtered_df:
+        if size in i:
+            count += 1
+    return count
 
 
 if __name__ == "__main__":
-    all_emails = getEmailList()
-    # all_emails = [email for email in all_emails if email not in cancelledList]
-    print(all_emails)
-    print(f"Total emails to send: {len(all_emails)}")
+    sizes = FilterData("T-shirt Unisex - 3XL")
+    print(sizes)
+    
